@@ -3,7 +3,7 @@ import re
 import base64
 import random
 from typing import Optional, Dict, Any
-from cache import global_cache
+from api.cache import global_cache
 
 
 class Lyrics:
