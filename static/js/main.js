@@ -1,3 +1,29 @@
+function updateUrlPreview() {
+  const title = document.getElementById("title").value.trim();
+  const artist = document.getElementById("artist").value.trim();
+  const duration = document.getElementById("duration").value.trim();
+  const apiUrlSpan = document.getElementById("api-url");
+
+  let baseUrl = window.location.origin + "/api/lyrics";
+  let params = [];
+
+  if (title) params.push(`title=${encodeURIComponent(title)}`);
+  if (artist) params.push(`artist=${encodeURIComponent(artist)}`);
+  if (duration) params.push(`duration=${duration}`);
+
+  if (params.length > 0) {
+    apiUrlSpan.innerText = `${baseUrl}?${params.join("&")}`;
+  } else {
+    apiUrlSpan.innerText = `${baseUrl}?title=...`;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("input").forEach((input) => {
+    input.addEventListener("input", updateUrlPreview);
+  });
+});
+
 async function fetchLyrics() {
   const title = document.getElementById("title").value;
   const artist = document.getElementById("artist").value;

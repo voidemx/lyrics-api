@@ -28,6 +28,7 @@ h1 {
   color: #a5d6ff;
   margin-left: 10px;
   word-break: break-all;
+  transition: color 0.3s ease;
 }
 .box {
   background: #161b22;
@@ -46,6 +47,7 @@ input {
   margin-bottom: 15px;
   font-size: 14px;
   outline: none;
+  transition: border-color 0.2s;
 }
 input:focus {
   border-color: #58a6ff;
@@ -74,9 +76,6 @@ button:disabled {
   border: 1px solid #8b949e33;
   margin-top: 10px;
   min-width: 150px;
-}
-.secondary-btn:hover {
-  background: #3c444d;
 }
 pre {
   background: #0d1117;
