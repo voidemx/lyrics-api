@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lyrics API</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Lyrics API</h1>
+    <p>A simple API that fetched synced lyrics from kugou</p>
+
+    <div class="box">
+      <h3>Live Preview</h3>
+      <input type="text" id="title" placeholder="Song Title" required />
+      <input type="text" id="artist" placeholder="Artist Name (Optional)" />
+      <input type="number" id="duration" placeholder="Duration (seconds)" />
+      <button id="search-btn" onclick="fetchLyrics()">Get Lyrics</button>
+
+      <div id="result-container" style="display: none">
+        <div id="result-header">
+          <h4>Result</h4>
+          <button
+            id="copy-btn"
+            class="secondary-btn"
+            style="width: auto; padding: 8px 20px; display: none"
+            onclick="copyToClipboard()"
+          >
+            Copy Lyrics
+          </button>
+        </div>
+        <div id="lyrics-display"></div>
+      </div>
+    </div>
+
+    <div class="box">
+      <h3>API Endpoint</h3>
+      <div>
+        <span class="badge">GET</span>
+        <span class="url">/api/lyrics?title=...</span>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>
